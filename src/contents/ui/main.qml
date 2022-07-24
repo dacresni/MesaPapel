@@ -15,6 +15,11 @@ Kirigami.ApplicationWindow {
 
     // Initial page to be loaded on app load
     pageStack.initialPage: Kirigami.Page {
+        Controls.Label {
+            // Center label horizontally and vertically within parent element
+            anchors.centerIn: parent
+            text: i18n("Postgres Admin")
+        }
        Kirigami.GlobalDrawer {
             actions: [
                Kirigami.Action {
@@ -35,11 +40,6 @@ Kirigami.ApplicationWindow {
                    icon.name: "folder-sync"
                }
             ]
-        }
-        Controls.Label {
-            // Center label horizontally and vertically within parent element
-            anchors.centerIn: parent
-            text: i18n("Postgres Admin")
         }
     }
 }
