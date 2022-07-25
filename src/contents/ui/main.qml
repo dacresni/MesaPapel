@@ -11,14 +11,14 @@ Kirigami.ApplicationWindow {
 
     // Window title
     // i18nc is useful for adding context for translators, also lets strings be changed for different languages
-    title: i18nc("@title:window", "PG Admin")
+    title: i18nc("@title:window", "Postgres Admin Admin")
 
     // Initial page to be loaded on app load
     pageStack.initialPage: Kirigami.Page {
         Controls.Label {
             // Center label horizontally and vertically within parent element
             anchors.centerIn: parent
-            text: i18n("Postgres Admin")
+            text: i18n("New Connection")
         }
        Kirigami.GlobalDrawer {
             actions: [
@@ -34,10 +34,6 @@ Kirigami.ApplicationWindow {
                    Kirigami.Action {
                            text: "action 3"
                    }
-               },
-               Kirigami.Action {
-                   text: "Sync"
-                   icon.name: "folder-sync"
                }
             ]
         }
