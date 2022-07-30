@@ -4,7 +4,7 @@
 #include <QUrl>
 #include <KLocalizedContext>
 #include <KLocalizedString>
-#include <KSharedConfig>
+#include <KConfig>
 
 int main(int argc, char *argv[])
 {
