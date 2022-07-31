@@ -12,12 +12,14 @@ Kirigami.ApplicationWindow {
     // Window title
     // i18nc is useful for adding context for translators, also lets strings be changed for different languages
     title: i18nc("@title:window", "Postgres Admin")
+    ListModel {
+      id: connectionsModel
+      ListElement { name: "example connectio name"; description: "example connection string "; date: 100 }
+    }
 
     // Initial page to be loaded on app load
     pageStack.initialPage: Kirigami.Page {
         contentItem: Item {
-            implicitWidth: delegateLayout.implicitWidth 
-            implicitHeight: delegateLayout.implicitHeight
 						ColumnLayout {
 								Kirigami.Heading {
 										Layout.fillWidth: true
