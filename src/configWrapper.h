@@ -4,13 +4,31 @@
 #include <QUrl>
 #include <KLocalizedContext>
 #include <KLocalizedString>
-#include <KConfig>
+#include <KSharedConfig>
+
+class Connection: public QObject {
+  Q_PROPERTY(QString name READ name WRITE setName )
+  Q_PROPERTY(QString database READ database WRITE setDatabase )
+  Q_PROPERTY(QString hostname READ hostname WRITE setHostname )
+  Q_PROPERTY(int port READ port WRITE setPort )
+  public:
+    QString name;
+    QString database;
+    QString hostname;
+    int port;
+};
 
 class ConfigWrapper: public QObject
 {
   Q_OBJECT
   public:
+    QQmlListProperty<Connection> connections();
+    Q_INVOKABLE bool ConfigWrapper();
     Q_INVOKABLE bool addConnection();
+    Q_INVOKABLE bool EditConnection();
     Q_INVOKABLE bool deleteConnection();
+  private:
+    KSharedConfig::Ptr conf;
+
 };
 
