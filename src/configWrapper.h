@@ -7,6 +7,7 @@
 #include <KSharedConfig>
 
 class Connection: public QObject {
+  Q_OBJECT
   Q_PROPERTY(QString name READ name WRITE setName )
   Q_PROPERTY(QString database READ database WRITE setDatabase )
   Q_PROPERTY(QString hostname READ hostname WRITE setHostname )
@@ -23,7 +24,7 @@ class ConfigWrapper: public QObject
   Q_OBJECT
   public:
     QQmlListProperty<Connection> connections();
-    Q_INVOKABLE bool ConfigWrapper();
+    Q_INVOKABLE ConfigWrapper ConfigWrapper();
     Q_INVOKABLE bool addConnection();
     Q_INVOKABLE bool EditConnection();
     Q_INVOKABLE bool deleteConnection();
