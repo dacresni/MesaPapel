@@ -29,7 +29,7 @@ class ConnectionList: public QObject
     Q_INVOKABLE bool deleteConnection();
   private:
    KSharedConfigPtr conf;
-   KConfigGroup connections;
+   // KConfigGroup connections;
 
 };
 
