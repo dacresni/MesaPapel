@@ -19,12 +19,11 @@ class Connection: public QObject {
     int port;
 };
 
-class ConfigWrapper: public QObject
+class ConnectionList: public QObject
 {
   Q_OBJECT
   public:
     QQmlListProperty<Connection> connections();
-    Q_INVOKABLE ConfigWrapper ConfigWrapper();
     Q_INVOKABLE bool addConnection();
     Q_INVOKABLE bool EditConnection();
     Q_INVOKABLE bool deleteConnection();

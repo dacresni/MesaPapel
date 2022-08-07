@@ -7,10 +7,10 @@ ConfigWrapper::ConfigWrapper() {
     conf = KSharedConfig::openConfig(KConfig::SimpleConfig);
 }
 bool ConfigWrapper::addConnection( QObject conn) {
-    QString Name = conn->name;
-    QString Database = conn-> database;
-    QString Hostname = conn-> hostname;
-    int Port = conn-> port;
+    QString Name = conn.name;
+    QString Database = conn.database;
+    QString Hostname = conn.hostname;
+    int Port = conn.port;
 
     if (!(conf->hasGroup(Name))){
         KConfigGroup newConnection = conf->group(conn->name);
