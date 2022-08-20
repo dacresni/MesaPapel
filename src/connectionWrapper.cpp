@@ -1,4 +1,32 @@
-#include "configWrapper.h"
+#include "connectionWrapper.h"
+
+Connection::Connection(QObject *parent):
+  QObject(parent){}
+
+QString Connection::name() {
+  return m_name;
+}
+
+QString Connection::hostname() {
+  return m_hostname;
+}
+
+QString Connection::database() {
+  return m_database;
+}
+
+int Connection::port() {
+  return m_port;
+}
+
+
+void setName(const QString &connectionname){
+  
+}
+void setName(const QString &connectionname){}
+void setDatabase(const QString &dbname){}
+void setHostname(const QString &hostname){}
+void setPort(const QString &port){}
 
 
 ConfigWrapper::ConfigWrapper() {
