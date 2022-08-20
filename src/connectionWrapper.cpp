@@ -21,12 +21,17 @@ int Connection::port() {
 
 
 void setName(const QString &connectionname){
-  
+  m_name = connectionname;
 }
-void setName(const QString &connectionname){}
-void setDatabase(const QString &dbname){}
-void setHostname(const QString &hostname){}
-void setPort(const QString &port){}
+void setDatabase(const QString &dbname){
+  m_database = dbname;
+}
+void setHostname(const QString &hostname){
+  m_hostname = hostname;
+}
+void setPort(const QString &port){
+  m_port = port;
+}
 
 
 ConfigWrapper::ConfigWrapper() {
