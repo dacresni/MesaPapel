@@ -23,7 +23,7 @@ class Connection: public QObject {
     QString hostname();
     void setHostname(const QString &hostname);
     int port();
-    void setPort(const QString &port);
+    void setPort(const int &port);
   private:
     QString m_name;
     QString m_database;

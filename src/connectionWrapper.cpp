@@ -20,16 +20,16 @@ int Connection::port() {
 }
 
 
-void setName(const QString &connectionname){
+void Connection::setName(const QString &connectionname){
   m_name = connectionname;
 }
-void setDatabase(const QString &dbname){
+void Connection::setDatabase(const QString &dbname){
   m_database = dbname;
 }
-void setHostname(const QString &hostname){
+void Connection::setHostname(const QString &hostname){
   m_hostname = hostname;
 }
-void setPort(const QString &port){
+void Connection::setPort(const int &port){
   m_port = port;
 }
 
@@ -39,10 +39,10 @@ ConfigWrapper::ConfigWrapper() {
     KConfigGroup connections = conf.group("Connections");
 }
 bool ConfigWrapper::addConnection( QObject conn) {
-    QString Name = conn.name;
-    QString Database = conn.database;
-    QString Hostname = conn.hostname;
-    int Port = conn.port;
+    QString Name = conn.m_name;
+    QString Database = conn.m_database;
+    QString Hostname = conn.m_hostname;
+    int Port = conn.m_port;
 
     if (!connections.hasGroup(Name)){
         KConfigGroup newConnection = conf.group(conn.name);

@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
     KLocalizedString::setApplicationDomain("MesaPapel");
     QCoreApplication::setOrganizationName(QStringLiteral("KDE"));
     QCoreApplication::setOrganizationDomain(QStringLiteral("kde.org"));
-    QCoreApplication::setApplicationName(QStringLiteral("MesaPapel"));
+    QCoreApplication::setApplicationName(QStringLiteral("Ori"));
 
     QQmlApplicationEngine engine;
 
