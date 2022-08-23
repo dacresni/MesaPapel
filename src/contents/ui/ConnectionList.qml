@@ -3,18 +3,29 @@ import QtQuick.Controls 2.0 as Controls
 import QtQuick.Layouts 1.2
 import org.kde.kirigami 2.13 as Kirigami
 Kirigami.Page {
-        Kirigami.CardsListView {
+    title: i18nc("@title:window", "Postgres Admin")
+    Controls.Label {
+        // Center label horizontally and vertically within parent element
+        anchors.centerIn: parent
+        text: i18n("Connections")
+    }
+    Kirigami.CardsListView {
         id: layout
         model: connectionsModel
-        delegate: connectionsDeligate
+        delegate: connectionsDelegate
     }
-    ListModel {
-        id: connectionsModel
-        // Each ListElement is an element on the list, containing information
-        ListElement { name: "name"; description: "description"; port: 5432; hostname: "hostname" }
+    actions.main: Kirigami.Action {
+        id: addAction
+        icon.name: "list-add"
+        text: i18nc("@action:button", "Add kountdown")
+        onTriggered: connectionsModel.append({
+          name: "Kirigami Action added card!",
+          description: "Congratulations, your Kirigami Action works!",
+          port: 1000
+        })
     }
     Component {
-        id: connectionsDeligate
+        id: connectionsDelegate
         Kirigami.AbstractCard {
             contentItem: Item {
                 // implicitWidth/Height define the natural width/height of an item if no width or height is specified.
@@ -35,7 +46,6 @@ Kirigami.Page {
                     Kirigami.Heading {
                         Layout.fillHeight: true
                         level: 1
-                        //text: i18n("Port:%1",port)
                         text: (port < 100000) ? port : i18n("%1 days", Math.round((port-Date.now())/86400000))
                     }
 
@@ -66,6 +76,5 @@ Kirigami.Page {
             }
         }
     }
-
 }
 

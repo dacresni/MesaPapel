@@ -11,11 +11,12 @@ Kirigami.ApplicationWindow {
 
     // Window title
     // i18nc is useful for adding context for translators, also lets strings be changed for different languages
-    title: i18nc("@title:window", "Postgres Admin")
-    Controls.Label {
-        // Center label horizontally and vertically within parent element
-        anchors.centerIn: parent
-        text: i18n("Connections")
+    
+    ListModel {
+        id: connectionsModel
+        // Each ListElement is an element on the list, containing information
+        ListElement { name: "name"; description: "description"; port: 5432; hostname: "hostname" }
+        ListElement { name: "name"; description: "description"; port: 5432; hostname: "hostname" }
     }
     // Initial page to be loaded on app load
     pageStack.initialPage: Qt.resolvedUrl("ConnectionList.qml")
