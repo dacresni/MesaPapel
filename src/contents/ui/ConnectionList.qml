@@ -3,25 +3,18 @@ import QtQuick.Controls 2.0 as Controls
 import QtQuick.Layouts 1.2
 import org.kde.kirigami 2.13 as Kirigami
 Kirigami.Page {
-    Controls.Label {
-        // Center label horizontally and vertically within parent element
-        anchors.centerIn: parent
-        text: i18n("New Connection")
-    }
-
-    Kirigami.CardsListView {
+        Kirigami.CardsListView {
         id: layout
-        model: kountdownModel
-        delegate: kountdownDelegate
+        model: connectionsModel
+        delegate: connectionsDeligate
     }
-
     ListModel {
-        id: kountdownModel
+        id: connectionsModel
         // Each ListElement is an element on the list, containing information
-        ListElement { name: "Dog birthday!!"; description: "Big doggo birthday blowout."; date: 100 }
+        ListElement { name: "name"; description: "description"; port: 5432; hostname: "hostname" }
     }
     Component {
-        id: kountdownDelegate
+        id: connectionsDeligate
         Kirigami.AbstractCard {
             contentItem: Item {
                 // implicitWidth/Height define the natural width/height of an item if no width or height is specified.
@@ -42,7 +35,8 @@ Kirigami.Page {
                     Kirigami.Heading {
                         Layout.fillHeight: true
                         level: 1
-                        text: (date < 100000) ? date : i18n("%1 days", Math.round((date-Date.now())/86400000))
+                        //text: i18n("Port:%1",port)
+                        text: (port < 100000) ? port : i18n("%1 days", Math.round((port-Date.now())/86400000))
                     }
 
                     ColumnLayout {

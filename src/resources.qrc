@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file alias="main.qml">contents/ui/main.qml</file>
+        <file alias="ConnectionList.qml">contents/ui/ConnectionList.qml</file>
     </qresource>
 </RCC>
